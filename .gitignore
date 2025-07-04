@@ -1,0 +1,8 @@
+# Node modules (falls du später Node-Tools nutzt)
+node_modules/
+# Mac/Windows/Editor Dateien
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+*.log
