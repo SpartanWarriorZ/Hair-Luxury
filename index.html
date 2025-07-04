@@ -779,6 +779,192 @@
       color: #23252b;
       box-shadow: 0 4px 24px #e0b97355;
     }
+    /* --- Responsive Navbar --- */
+    .navbar-hamburger {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: 44px;
+      height: 44px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      z-index: 120;
+      margin-left: 16px;
+    }
+    .navbar-hamburger span {
+      display: block;
+      width: 28px;
+      height: 3.5px;
+      margin: 4px 0;
+      background: #e0b973;
+      border-radius: 2px;
+      transition: all 0.3s;
+    }
+    .navbar-hamburger.active span:nth-child(1) {
+      transform: translateY(7px) rotate(45deg);
+    }
+    .navbar-hamburger.active span:nth-child(2) {
+      opacity: 0;
+    }
+    .navbar-hamburger.active span:nth-child(3) {
+      transform: translateY(-7px) rotate(-45deg);
+    }
+    .navbar-mobile-overlay {
+      display: none;
+      position: fixed;
+      left: 0; top: 0; right: 0; bottom: 0;
+      background: rgba(35,37,43,0.7);
+      z-index: 110;
+    }
+    .navbar-mobile-overlay.active {
+      display: block;
+    }
+    @media (max-width: 900px) {
+      .navbar {
+        padding: 16px 10px;
+      }
+      .navbar-hamburger {
+        display: flex;
+      }
+      .navbar-nav {
+        position: fixed;
+        flex-direction: column;
+        align-items: flex-start;
+        top: 0;
+        right: -320px;
+        width: 260px;
+        height: 100vh;
+        background: #23252b;
+        box-shadow: -2px 0 24px #e0b97333;
+        padding: 80px 24px 24px 24px;
+        margin: 0;
+        border-radius: 0 0 0 0;
+        z-index: 120;
+        gap: 0;
+        opacity: 0.98;
+        transition: right 0.3s cubic-bezier(.4,1.6,.6,1), opacity 0.3s;
+      }
+      .navbar-nav.active {
+        right: 0;
+        opacity: 1;
+      }
+      .navbar-nav a,
+      #open-preisliste-btn {
+        display: block;
+        width: 100%;
+        text-align: left;
+        margin: 0 0 12px 0;
+        font-size: 1.15rem;
+        padding: 16px 0 16px 8px;
+        border-radius: 16px;
+      }
+      #open-preisliste-btn {
+        margin-left: 0 !important;
+      }
+    }
+    @media (max-width: 600px) {
+      .navbar {
+        padding: 10px 2vw;
+      }
+      .logo {
+        font-size: 1.3rem;
+        gap: 6px;
+      }
+      .hero-title {
+        font-size: 2rem;
+        padding: 10px 0;
+      }
+      .hero-content {
+        padding: 8px 2vw 4px;
+      }
+      .logo-center-anim {
+        width: 90vw !important;
+        max-width: 98vw !important;
+        margin-left: 0 !important;
+      }
+      .logo-3d-container {
+        width: 90vw !important;
+        height: 90vw !important;
+        max-width: 98vw !important;
+      }
+      .info-section {
+        flex-direction: column;
+        gap: 18px;
+        padding: 18px 8px 10px;
+      }
+      .info-block {
+        min-width: unset;
+        width: 100%;
+      }
+      .section {
+        padding: 36px 4vw 24px;
+      }
+      .section-bordered {
+        padding: 24px 4vw 18px;
+        margin: 24px auto 24px auto;
+      }
+      .services-grid,
+      .gallery {
+        grid-template-columns: 1fr;
+        gap: 18px;
+      }
+      .about-content {
+        flex-direction: column;
+        gap: 18px;
+      }
+      .about-img {
+        max-width: 98vw;
+        min-width: 0;
+        aspect-ratio: 3/4;
+      }
+      .about-text {
+        font-size: 1.01rem;
+        min-height: 0;
+        max-width: 98vw;
+      }
+      .cta-section {
+        padding: 32px 4vw 24px;
+        margin: 32px 4vw 0 4vw;
+        border-radius: 18px;
+      }
+      .modal-content,
+      .modal-preisliste-content {
+        width: 98vw;
+        min-width: 0;
+        max-width: 99vw;
+        border-radius: 12px;
+        padding: 0;
+      }
+      .modal-iframe {
+        min-height: 320px !important;
+        height: 320px !important;
+      }
+      .preisliste-table {
+        font-size: 0.98rem;
+        padding: 0 2vw;
+        max-width: 98vw;
+      }
+      .preisliste-title {
+        font-size: 1.2rem;
+        margin: 18px 0 8px 0;
+      }
+      .preisliste-btn {
+        font-size: 0.98rem;
+        padding: 10px 18px;
+      }
+      #img-popup-large {
+        max-width: 98vw !important;
+        max-height: 70vh !important;
+      }
+      #img-popup-close {
+        top: 12px !important;
+        right: 12px !important;
+        font-size: 2.2rem !important;
+      }
+    }
+    /* ...existing code... */
   </style>
 </head>
 <body>
@@ -787,7 +973,12 @@
       <div class="logo">
         Hair Luxury
       </div>
-      <div class="navbar-nav">
+      <button class="navbar-hamburger" id="navbar-hamburger" aria-label="Menü öffnen" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+      <div class="navbar-nav" id="navbar-nav">
         <a href="#leistungen">Leistungen</a>
         <a href="#galerie">Galerie</a>
         <a href="#ueberuns">Über uns</a>
@@ -795,6 +986,7 @@
         <button class="preisliste-btn" id="open-preisliste-btn" type="button">Preisliste</button>
       </div>
     </div>
+    <div class="navbar-mobile-overlay" id="navbar-mobile-overlay"></div>
   </header>
   <section class="hero" id="hero">
     <div class="hero-bg"></div>
@@ -951,8 +1143,45 @@
       once: true
     });
 
-    // "Über uns" Text animiert einblenden beim Scrollen
+    // --- Responsive Navbar Script ---
     document.addEventListener('DOMContentLoaded', function() {
+      // Hamburger Menü
+      const hamburger = document.getElementById('navbar-hamburger');
+      const nav = document.getElementById('navbar-nav');
+      const overlay = document.getElementById('navbar-mobile-overlay');
+      function closeNav() {
+        nav.classList.remove('active');
+        hamburger.classList.remove('active');
+        overlay.classList.remove('active');
+        hamburger.setAttribute('aria-expanded', 'false');
+        document.body.style.overflow = '';
+      }
+      function openNav() {
+        nav.classList.add('active');
+        hamburger.classList.add('active');
+        overlay.classList.add('active');
+        hamburger.setAttribute('aria-expanded', 'true');
+        document.body.style.overflow = 'hidden';
+      }
+      hamburger.addEventListener('click', function() {
+        if (nav.classList.contains('active')) {
+          closeNav();
+        } else {
+          openNav();
+        }
+      });
+      overlay.addEventListener('click', closeNav);
+      // Schließe Menü bei Klick auf Link (mobil)
+      nav.querySelectorAll('a,button').forEach(el => {
+        el.addEventListener('click', function() {
+          if (window.innerWidth <= 900) closeNav();
+        });
+      });
+      window.addEventListener('resize', function() {
+        if (window.innerWidth > 900) closeNav();
+      });
+
+      // "Über uns" Text animiert einblenden beim Scrollen
       const about = document.getElementById('about-animate');
       if (!about) return;
       function onScroll() {
