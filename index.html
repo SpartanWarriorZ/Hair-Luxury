@@ -745,7 +745,7 @@
       /* Logo noch größer und wirklich zentriert */
       .logo-center-anim,
       .logo-center-anim[style] {
-        width: 98vw !important;
+        width: calc(98vw - 10px) !important; /* 10px Platz für die Verschiebung */
         max-width: 420px !important;
         min-width: 180px !important;
         margin-left: auto !important;
@@ -982,12 +982,13 @@
       /* Logo noch größer und wirklich zentriert */
       .logo-center-anim,
       .logo-center-anim[style] {
-        width: 98vw !important;
+        width: calc(98vw - 10px) !important; /* 10px Platz für die Verschiebung */
         max-width: 420px !important;
         min-width: 180px !important;
         margin-left: auto !important;
         margin-right: auto !important;
         display: block !important;
+        transform: translateX(10px) !important;
       }
 
       /* "Jetzt Termin vereinbaren" kleiner */
@@ -1218,12 +1219,13 @@
       /* Logo noch größer und wirklich zentriert */
       .logo-center-anim,
       .logo-center-anim[style] {
-        width: 98vw !important;
+        width: calc(98vw - 10px) !important; /* 10px Platz für die Verschiebung */
         max-width: 420px !important;
         min-width: 180px !important;
         margin-left: auto !important;
         margin-right: auto !important;
         display: block !important;
+        transform: translateX(10px) !important;
       }
 
       /* "Jetzt Termin vereinbaren" kleiner */
@@ -1711,7 +1713,7 @@
       const handleMat = new THREE.MeshPhysicalMaterial({
         color: 0xbfc1c6,
         metalness: 1,
-        roughness: 0.18,
+               roughness: 0.18,
         reflectivity: 1,
         clearcoat: 1,
         clearcoatRoughness: 0.1,
