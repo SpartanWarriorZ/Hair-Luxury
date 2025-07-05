@@ -716,6 +716,31 @@
       .preisliste-table {
         max-height: 32vh;
       }
+      /* Logo im Hero mobil zentrieren und Größe anpassen */
+      .logo-center-anim {
+        display: block !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+        margin-top: 0 !important;
+        margin-bottom: 12px !important;
+        width: 70vw !important;
+        max-width: 90vw !important;
+        height: auto !important;
+        border-radius: 0 !important;
+        box-shadow: none !important;
+        position: relative !important;
+        left: 0 !important;
+        right: 0 !important;
+        top: 0 !important;
+        z-index: 10 !important;
+      }
+      /* Container ggf. auch anpassen */
+      .logo-3d-container {
+        margin-left: auto !important;
+        margin-right: auto !important;
+        left: 0 !important;
+        right: 0 !important;
+      }
     }
     .logo-center-anim {
       transition: 
@@ -886,103 +911,70 @@
       }
     }
     @media (max-width: 600px) {
-      .navbar {
-        padding: 10px 2vw;
-      }
-      .logo {
-        font-size: 1.3rem;
-        gap: 6px;
-      }
-      .hero-title {
-        font-size: 2rem;
-        padding: 10px 0;
-      }
-      .hero-content {
-        padding: 8px 2vw 4px;
-      }
-      .logo-center-anim {
-        width: 90vw !important;
-        max-width: 98vw !important;
-        margin-left: 0 !important;
-      }
-      .logo-3d-container {
-        width: 90vw !important;
-        height: 90vw !important;
-        max-width: 98vw !important;
-      }
-      .info-section {
-        flex-direction: column;
-        gap: 18px;
-        padding: 18px 8px 10px;
-      }
-      .info-block {
-        min-width: unset;
-        width: 100%;
-      }
-      .section {
-        padding: 36px 4vw 24px;
-      }
-      .section-bordered {
-        padding: 24px 4vw 18px;
-        margin: 24px auto 24px auto;
-      }
-      .services-grid,
-      .gallery {
-        grid-template-columns: 1fr;
-        gap: 18px;
-      }
-      .about-content {
-        flex-direction: column;
-        gap: 18px;
-      }
-      .about-img {
-        max-width: 98vw;
-        min-width: 0;
-        aspect-ratio: 3/4;
-      }
-      .about-text {
-        font-size: 1.01rem;
-        min-height: 0;
-        max-width: 98vw;
-      }
-      .cta-section {
-        padding: 32px 4vw 24px;
-        margin: 32px 4vw 0 4vw;
-        border-radius: 18px;
-      }
-      .modal-content,
+      .hero-content { padding: 12px 2vw 8px; }
+      /* .logo-3d-container { ... } */
+      /* .logo-3d-container img { ... } */
+      .hero-subtitle { font-size: 0.98rem; margin-top: -10px; }
+      .hero-btn { font-size: 0.95rem; padding: 10px 12px; }
       .modal-preisliste-content {
-        width: 98vw;
-        min-width: 0;
-        max-width: 99vw;
-        border-radius: 12px;
-        padding: 0;
-      }
-      .modal-iframe {
-        min-height: 320px !important;
-        height: 320px !important;
+        max-height: 85vh;
       }
       .preisliste-table {
-        font-size: 0.98rem;
-        padding: 0 2vw;
-        max-width: 98vw;
+        max-height: 32vh;
       }
-      .preisliste-title {
-        font-size: 1.2rem;
-        margin: 18px 0 8px 0;
+      /* Logo im Hero mobil zentrieren und Größe anpassen */
+      .logo-center-anim {
+        display: block !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+        margin-top: 0 !important;
+        margin-bottom: 12px !important;
+        width: 70vw !important;
+        max-width: 90vw !important;
+        height: auto !important;
+        border-radius: 0 !important;
+        box-shadow: none !important;
+        position: relative !important;
+        left: 0 !important;
+        right: 0 !important;
+        top: 0 !important;
+        z-index: 10 !important;
       }
-      .preisliste-btn {
-        font-size: 0.98rem;
-        padding: 10px 18px;
+      /* Container ggf. auch anpassen */
+      .logo-3d-container {
+        margin-left: auto !important;
+        margin-right: auto !important;
+        left: 0 !important;
+        right: 0 !important;
       }
-      #img-popup-large {
-        max-width: 98vw !important;
-        max-height: 70vh !important;
+      /* Beispiel: Hero-Bild kleiner machen */
+      .logo-center-anim {
+        width: 70vw !important;
+        max-width: 90vw !important;
+        margin-left: 0 !important;
       }
-      #img-popup-close {
-        top: 12px !important;
-        right: 12px !important;
-        font-size: 2.2rem !important;
+      /* Beispiel: Buttons nebeneinander statt untereinander */
+      .cta-section a {
+        display: inline-block;
+        margin-bottom: 8px;
+      }
+      .cta-btn {
+        width: 100%;
+        margin: 8px 0 0 0 !important;
+        font-size: 1.05rem;
+        padding: 12px 0;
+      }
+      /* Beispiel: Galerie-Bilder kleiner und weniger Abstand */
+      .gallery img {
+        aspect-ratio: 1/1;
+        max-width: 95vw;
+        margin: 0 auto;
+      }
+      /* Beispiel: Info-Section Blöcke untereinander */
+      .info-section {
+        flex-direction: column;
+        gap: 10px;
+        padding: 12px 4vw 8px;
       }
     }
     /* ...existing code... */
