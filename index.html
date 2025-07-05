@@ -1154,6 +1154,18 @@
         right: 0 !important;
       }
     }
+    @media (max-width: 600px) {
+      .logo-center-anim,
+      .logo-center-anim[style] {
+        margin-left: auto !important;
+        margin-right: auto !important;
+        display: block !important;
+        width: 88vw !important;      /* Größer als vorher */
+        max-width: 340px !important; /* Optional: maximale Größe */
+        min-width: 180px !important; /* Optional: nicht zu klein */
+        height: auto !important;
+      }
+    }
     .preisliste-scroll {
       /* Ermöglicht Scrollen mit Mausrad und Touch, auch auf Desktop */
       overflow-y: auto;
