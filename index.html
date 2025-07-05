@@ -947,37 +947,213 @@
         left: 0 !important;
         right: 0 !important;
       }
-      /* Beispiel: Hero-Bild kleiner machen */
-      .logo-center-anim {
-        width: 70vw !important;
-        max-width: 90vw !important;
+    }
+    .logo-center-anim {
+      transition: 
+        transform 0.35s cubic-bezier(.4,1.6,.6,1),
+        box-shadow 0.35s cubic-bezier(.4,1.6,.6,1),
+        filter 0.35s cubic-bezier(.4,1.6,.6,1);
+      will-change: transform, box-shadow, filter;
+    }
+    .logo-center-anim:hover,
+    .logo-center-anim:focus {
+      transform: scale(1.08);
+      box-shadow:
+        0 0 32px 8px #e0b97388,
+        0 0 64px 16px #fff3cd55;
+      filter: drop-shadow(0 0 18px #e0b973cc);
+      z-index: 10;
+    }
+    .section-bordered {
+      border: 3px solid #e0b973;
+      border-radius: 28px;
+      box-shadow: 0 4px 32px #e0b97322, 0 0 0 2px #fff3cd44 inset;
+      padding: 48px 24px 40px;
+      margin: 48px auto 48px auto;
+      background: #fff;
+      position: relative;
+      max-width: 1200px;
+    }
+    .navbar-nav {
+      display: flex;
+      align-items: center;
+      gap: 0;
+      background: #23252b;
+      border-radius: 32px;
+      box-shadow: 0 2px 16px #e0b97322;
+      padding: 4px 10px 4px 10px;
+      margin-left: 18px;
+    }
+    .navbar-nav a,
+    #open-preisliste-btn {
+      color: #fff;
+      background: none;
+      border: none;
+      outline: none;
+      font-family: inherit;
+      font-size: 1.08rem;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-decoration: none;
+      padding: 10px 22px;
+      border-radius: 24px;
+      margin: 0 2px;
+      transition: 
+        background 0.22s cubic-bezier(.4,1.6,.6,1),
+        color 0.22s cubic-bezier(.4,1.6,.6,1),
+        box-shadow 0.22s cubic-bezier(.4,1.6,.6,1);
+      cursor: pointer;
+      position: relative;
+      z-index: 1;
+      box-shadow: none;
+      display: inline-block;
+    }
+    .navbar-nav a:hover,
+    .navbar-nav a:focus,
+    #open-preisliste-btn:hover,
+    #open-preisliste-btn:focus {
+      background: linear-gradient(90deg, #fff3cd 0%, #e0b973 100%);
+      color: #23252b;
+      box-shadow: 0 2px 16px #e0b97333;
+    }
+    #open-preisliste-btn {
+      margin-left: 8px !important;
+      font-weight: 700;
+      background: linear-gradient(90deg, #e0b973 0%, #fff3cd 100%);
+      color: #23252b;
+      border: none;
+      box-shadow: 0 2px 16px #e0b97333;
+      transition: background 0.22s, color 0.22s, box-shadow 0.22s;
+    }
+    #open-preisliste-btn:hover,
+    #open-preisliste-btn:focus {
+      background: linear-gradient(90deg, #fff3cd 0%, #e0b973 100%);
+      color: #23252b;
+      box-shadow: 0 4px 24px #e0b97355;
+    }
+    /* --- Responsive Navbar --- */
+    .navbar-hamburger {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: 44px;
+      height: 44px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      z-index: 120;
+      margin-left: 16px;
+    }
+    .navbar-hamburger span {
+      display: block;
+      width: 28px;
+      height: 3.5px;
+      margin: 4px 0;
+      background: #e0b973;
+      border-radius: 2px;
+      transition: all 0.3s;
+    }
+    .navbar-hamburger.active span:nth-child(1) {
+      transform: translateY(7px) rotate(45deg);
+    }
+    .navbar-hamburger.active span:nth-child(2) {
+      opacity: 0;
+    }
+    .navbar-hamburger.active span:nth-child(3) {
+      transform: translateY(-7px) rotate(-45deg);
+    }
+    .navbar-mobile-overlay {
+      display: none;
+      position: fixed;
+      left: 0; top: 0; right: 0; bottom: 0;
+      background: rgba(35,37,43,0.7);
+      z-index: 110;
+    }
+    .navbar-mobile-overlay.active {
+      display: block;
+    }
+    @media (max-width: 900px) {
+      .navbar {
+        padding: 16px 10px;
+      }
+      .navbar-hamburger {
+        display: flex;
+      }
+      .navbar-nav {
+        position: fixed;
+        flex-direction: column;
+        align-items: flex-start;
+        top: 0;
+        right: -320px;
+        width: 260px;
+        height: 100vh;
+        background: #23252b;
+        box-shadow: -2px 0 24px #e0b97333;
+        padding: 80px 24px 24px 24px;
+        margin: 0;
+        border-radius: 0 0 0 0;
+        z-index: 120;
+        gap: 0;
+        opacity: 0.98;
+        transition: right 0.3s cubic-bezier(.4,1.6,.6,1), opacity 0.3s;
+      }
+      .navbar-nav.active {
+        right: 0;
+        opacity: 1;
+      }
+      .navbar-nav a,
+      #open-preisliste-btn {
+        display: block;
+        width: 100%;
+        text-align: left;
+        margin: 0 0 12px 0;
+        font-size: 1.15rem;
+        padding: 16px 0 16px 8px;
+        border-radius: 16px;
+      }
+      #open-preisliste-btn {
         margin-left: 0 !important;
       }
-      /* Beispiel: Buttons nebeneinander statt untereinander */
-      .cta-section a {
-        display: inline-block;
-        margin-bottom: 8px;
+    }
+    @media (max-width: 600px) {
+      .hero-content { padding: 12px 2vw 8px; }
+      /* .logo-3d-container { ... } */
+      /* .logo-3d-container img { ... } */
+      .hero-subtitle { font-size: 0.98rem; margin-top: -10px; }
+      .hero-btn { font-size: 0.95rem; padding: 10px 12px; }
+      .modal-preisliste-content {
+        max-height: 85vh;
       }
-      .cta-btn {
-        width: 100%;
-        margin: 8px 0 0 0 !important;
-        font-size: 1.05rem;
-        padding: 12px 0;
+      .preisliste-table {
+        max-height: 32vh;
       }
-      /* Beispiel: Galerie-Bilder kleiner und weniger Abstand */
-      .gallery img {
-        aspect-ratio: 1/1;
-        max-width: 95vw;
-        margin: 0 auto;
+      /* Logo im Hero mobil zentrieren und Größe anpassen */
+      .logo-center-anim {
+        display: block !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+        margin-top: 0 !important;
+        margin-bottom: 12px !important;
+        width: 70vw !important;
+        max-width: 90vw !important;
+        height: auto !important;
+        border-radius: 0 !important;
+        box-shadow: none !important;
+        position: relative !important;
+        left: 0 !important;
+        right: 0 !important;
+        top: 0 !important;
+        z-index: 10 !important;
       }
-      /* Beispiel: Info-Section Blöcke untereinander */
-      .info-section {
-        flex-direction: column;
-        gap: 10px;
-        padding: 12px 4vw 8px;
+      /* Container ggf. auch anpassen */
+      .logo-3d-container {
+        margin-left: auto !important;
+        margin-right: auto !important;
+        left: 0 !important;
+        right: 0 !important;
       }
     }
-    /* ...existing code... */
     .preisliste-scroll {
       /* Ermöglicht Scrollen mit Mausrad und Touch, auch auf Desktop */
       overflow-y: auto;
