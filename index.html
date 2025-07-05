@@ -621,6 +621,8 @@
       color: #23252b;
       padding: 0 18px;
       max-width: 370px;
+      max-height: none;
+      overflow: visible;
     }
     .preisliste-table th {
       color: #bfa76a;
@@ -688,6 +690,19 @@
       /* .logo-3d-container img { ... } */
       .hero-subtitle { font-size: 1.05rem; max-width: 95vw; margin-top: -20px; }
       .hero-btn { font-size: 1rem; padding: 12px 18px; border-radius: 24px; }
+      .modal-preisliste-content {
+        max-height: 90vh;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+      }
+      .preisliste-table {
+        display: block;
+        max-height: 45vh;
+        overflow-y: auto;
+        width: 100%;
+        margin-bottom: 0;
+      }
     }
     @media (max-width: 600px) {
       .hero-content { padding: 12px 2vw 8px; }
@@ -695,6 +710,12 @@
       /* .logo-3d-container img { ... } */
       .hero-subtitle { font-size: 0.98rem; margin-top: -10px; }
       .hero-btn { font-size: 0.95rem; padding: 10px 12px; }
+      .modal-preisliste-content {
+        max-height: 85vh;
+      }
+      .preisliste-table {
+        max-height: 32vh;
+      }
     }
     .logo-center-anim {
       transition: 
@@ -965,6 +986,17 @@
       }
     }
     /* ...existing code... */
+    .preisliste-scroll {
+      /* Ermöglicht Scrollen mit Mausrad und Touch, auch auf Desktop */
+      overflow-y: auto;
+      -webkit-overflow-scrolling: touch;
+      max-height: 45vh;
+    }
+    @media (max-width: 600px) {
+      .preisliste-scroll {
+        max-height: 32vh;
+      }
+    }
   </style>
 </head>
 <body>
@@ -1104,28 +1136,31 @@
     <div class="modal-preisliste-content">
       <button class="modal-preisliste-close" id="close-preisliste-btn" title="Schließen">&times;</button>
       <div class="preisliste-title">Preisliste</div>
-      <table class="preisliste-table">
-        <tr><td class="preisliste-kategorie" colspan="2">Damen</td></tr>
-        <tr><td>Waschen, Schneiden, Föhnen</td><td style="text-align:right;">ab 49&nbsp;€</td></tr>
-        <tr><td>Waschen & Föhnen</td><td style="text-align:right;">ab 29&nbsp;€</td></tr>
-        <tr><td>Neuschnitt inkl. Beratung</td><td style="text-align:right;">ab 59&nbsp;€</td></tr>
-        <tr><td>Ansatzfarbe</td><td style="text-align:right;">ab 39&nbsp;€</td></tr>
-        <tr><td>Foliensträhnen (Oberkopf)</td><td style="text-align:right;">ab 59&nbsp;€</td></tr>
-        <tr><td>Balayage</td><td style="text-align:right;">ab 119&nbsp;€</td></tr>
-        <tr><td>Intensivpflege / Kur</td><td style="text-align:right;">ab 12&nbsp;€</td></tr>
-        <tr><td class="preisliste-kategorie" colspan="2">Herren</td></tr>
-        <tr><td>Waschen, Schneiden, Styling</td><td style="text-align:right;">ab 29&nbsp;€</td></tr>
-        <tr><td>Maschinenschnitt</td><td style="text-align:right;">ab 18&nbsp;€</td></tr>
-        <tr><td>Bartpflege</td><td style="text-align:right;">ab 12&nbsp;€</td></tr>
-        <tr><td>Farbe / Tönung</td><td style="text-align:right;">ab 29&nbsp;€</td></tr>
-        <tr><td class="preisliste-kategorie" colspan="2">Kinder</td></tr>
-        <tr><td>Haarschnitt (bis 12 Jahre)</td><td style="text-align:right;">ab 17&nbsp;€</td></tr>
-        <tr><td>Waschen, Schneiden, Föhnen</td><td style="text-align:right;">ab 24&nbsp;€</td></tr>
-        <tr><td class="preisliste-kategorie" colspan="2">Extras</td></tr>
-        <tr><td>Augenbrauen zupfen / färben</td><td style="text-align:right;">ab 9&nbsp;€</td></tr>
-        <tr><td>Wimpern färben</td><td style="text-align:right;">ab 11&nbsp;€</td></tr>
-        <tr><td>Hochsteckfrisur / Brautstyling</td><td style="text-align:right;">ab 69&nbsp;€</td></tr>
-      </table>
+      <div class="preisliste-scroll" id="preisliste-scroll" style="overflow-y:auto;flex:1;">
+        <table class="preisliste-table">
+          <tr><td class="preisliste-kategorie" colspan="2">Damen</td></tr>
+          <tr><td>Waschen, Schneiden, Föhnen</td><td style="text-align:right;">ab 49&nbsp;€</td></tr>
+          <tr><td>Waschen & Föhnen</td><td style="text-align:right;">ab 29&nbsp;€</td></tr>
+          <tr><td>Neuschnitt inkl. Beratung</td><td style="text-align:right;">ab 59&nbsp;€</td></tr>
+          <tr><td>Ansatzfarbe</td><td style="text-align:right;">ab 39&nbsp;€</td></tr>
+          <tr><td>Foliensträhnen (Oberkopf)</td><td style="text-align:right;">ab 59&nbsp;€</td></tr>
+          <tr><td>Balayage</td><td style="text-align:right;">ab 119&nbsp;€</td></tr>
+          <tr><td>Intensivpflege / Kur</td><td style="text-align:right;">ab 12&nbsp;€</td></tr>
+          <tr><td class="preisliste-kategorie" colspan="2">Herren</td></tr>
+          <tr><td>Waschen, Schneiden, Styling</td><td style="text-align:right;">ab 29&nbsp;€</td></tr>
+          <tr><td>Maschinenschnitt</td><td style="text-align:right;">ab 18&nbsp;€</td></tr>
+          <tr><td>Bartpflege</td><td style="text-align:right;">ab 12&nbsp;€</td></tr>
+          <tr><td>Farbe / Tönung</td><td style="text-align:right;">ab 29&nbsp;€</td></tr>
+          <tr><td class="preisliste-kategorie" colspan="2">Kinder</td></tr>
+          <tr><td>Haarschnitt (bis 12 Jahre)</td><td style="text-align:right;">ab 17&nbsp;€</td></tr>
+          <tr><td>Waschen, Schneiden, Föhnen</td><td style="text-align:right;">ab 24&nbsp;€</td></tr>
+          <tr class="preisliste-gesamt"><td>Gesamtsumme</td><td style="text-align:right;">ab 29&nbsp;€</td></tr>
+          <tr><td class="preisliste-kategorie" colspan="2">Extras</td></tr>
+          <tr><td>Augenbrauen zupfen / färben</td><td style="text-align:right;">ab 9&nbsp;€</td></tr>
+          <tr><td>Wimpern färben</td><td style="text-align:right;">ab 11&nbsp;€</td></tr>
+          <tr><td>Hochsteckfrisur / Brautstyling</td><td style="text-align:right;">ab 69&nbsp;€</td></tr>
+        </table>
+      </div>
       <div class="preisliste-hinweis">Alle Preise sind Richtwerte und können je nach Haarlänge und Aufwand variieren.<br>Gerne beraten wir Sie individuell im Salon.</div>
     </div>
   </div>
@@ -1233,6 +1268,7 @@
       const openPreislisteBtn = document.getElementById('open-preisliste-btn');
       const preislisteModal = document.getElementById('preisliste-modal');
       const closePreislisteBtn = document.getElementById('close-preisliste-btn');
+      const preislisteScroll = document.getElementById('preisliste-scroll');
       if (openPreislisteBtn && preislisteModal && closePreislisteBtn) {
         openPreislisteBtn.addEventListener('click', function(e) {
           e.preventDefault();
@@ -1255,7 +1291,32 @@
             document.body.style.overflow = '';
           }
         });
+
+        // Mausrad-Scrollen nur innerhalb der Preisliste erlauben
+        if (preislisteScroll) {
+          preislisteScroll.addEventListener('wheel', function(e) {
+            const el = preislisteScroll;
+            const delta = e.deltaY;
+            const atTop = el.scrollTop === 0;
+            const atBottom = Math.ceil(el.scrollTop + el.clientHeight) >= el.scrollHeight;
+            // Wenn nicht am Rand, immer scrollen und Event stoppen
+            if (
+              (delta < 0 && !atTop) ||
+              (delta > 0 && !atBottom)
+            ) {
+              e.stopPropagation();
+              // kein preventDefault, damit normales Scrollen funktioniert
+            } else if (
+              (delta < 0 && atTop) ||
+              (delta > 0 && atBottom)
+            ) {
+              // Am Rand: Scrollen verhindern, damit Seite nicht scrollt
+              e.preventDefault();
+            }
+          }, { passive: false });
+        }
       }
+
       // Smooth Scroll mit Offset für Anker-Links (wegen sticky header)
       function scrollWithOffset(id) {
         const el = document.getElementById(id);
