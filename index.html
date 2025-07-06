@@ -846,13 +846,12 @@
       display: inline-block;
     }
     .navbar-nav a:hover,
-    .navbar-nav a:focus,
-    #open-preisliste-btn:hover,
-    #open-preisliste-btn:focus {
+    .navbar-nav a:focus {
       background: linear-gradient(90deg, #fff3cd 0%, #e0b973 100%);
       color: #23252b;
       box-shadow: 0 2px 16px #e0b97333;
     }
+    /* Preisliste-Button immer golden */
     #open-preisliste-btn {
       margin-left: 8px !important;
       font-weight: 700;
@@ -867,6 +866,14 @@
       background: linear-gradient(90deg, #fff3cd 0%, #e0b973 100%);
       color: #23252b;
       box-shadow: 0 4px 24px #e0b97355;
+    }
+    /* Kein Highlight für aktive oder angeklickte Links, aber NICHT für Preisliste */
+    .navbar-nav a:active,
+    .navbar-nav a.active,
+    .navbar-nav a[aria-current="page"] {
+      background: none !important;
+      color: #fff !important;
+      box-shadow: none !important;
     }
     /* --- Responsive Navbar --- */
     .navbar-hamburger {
@@ -1095,13 +1102,12 @@
       display: inline-block;
     }
     .navbar-nav a:hover,
-    .navbar-nav a:focus,
-    #open-preisliste-btn:hover,
-    #open-preisliste-btn:focus {
+    .navbar-nav a:focus {
       background: linear-gradient(90deg, #fff3cd 0%, #e0b973 100%);
       color: #23252b;
       box-shadow: 0 2px 16px #e0b97333;
     }
+    /* Preisliste-Button immer golden */
     #open-preisliste-btn {
       margin-left: 8px !important;
       font-weight: 700;
@@ -1116,6 +1122,14 @@
       background: linear-gradient(90deg, #fff3cd 0%, #e0b973 100%);
       color: #23252b;
       box-shadow: 0 4px 24px #e0b97355;
+    }
+    /* Kein Highlight für aktive oder angeklickte Links, aber NICHT für Preisliste */
+    .navbar-nav a:active,
+    .navbar-nav a.active,
+    .navbar-nav a[aria-current="page"] {
+      background: none !important;
+      color: #fff !important;
+      box-shadow: none !important;
     }
     /* --- Responsive Navbar --- */
     .navbar-hamburger {
